@@ -5,6 +5,7 @@ import Home from './pages/Home'
 import Result from './pages/Result'
 import BuyCredits from './pages/BuyCredits'
 import Navbar from './components/Navbar'
+import Footer from './components/Footer'
 
 const App = () => {
   return (
@@ -13,11 +14,12 @@ const App = () => {
     to-orange-50'>
 
       <Navbar/>
-      <Routes>
-        <Route path='/' element={<Home/>}/>
-        <Route path='/result' element={<Result/>}/>
-        <Route path='/buy' element={<BuyCredits/>}/>
-      </Routes>
+        <Routes>
+          <Route path='/' element={<Home/>}/>
+          <Route path='/result' element={<Result/>}/>
+          <Route path='/buy' element={<BuyCredits/>}/>
+        </Routes>
+      <Footer/>
     </div>
   )
 }
