@@ -2,14 +2,23 @@ import React, { useContext } from 'react'
 import { assets } from '../assets/assets'
 import {motion} from "framer-motion"
 import { AppContext } from '../context/AppContext'
+import { useNavigate } from 'react-router-dom'
 
 
 const Header = () => {
 
   const {user,setShowLogin} = useContext(AppContext);
 
-  const onClickHandler = ()=> {
 
+  const navigate =  useNavigate();
+
+  const onClickHandler = ()=> {
+    if(user){
+      navigate('/result');
+    }
+    else{
+      setShowLogin(true);
+    }
   }
 
   return (
@@ -47,7 +56,8 @@ const Header = () => {
             Turn your imagination into visual art in seconds - just type, and watch the magic happen.
          </motion.p>
 
-         <motion.button 
+         <motion.button
+          onClick={onClickHandler}
           whileHover={{scale: 1.05}}
           whileTap={{opacity: 0}}
           initial={{opacity: 0}}
